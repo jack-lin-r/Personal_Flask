@@ -45,7 +45,7 @@ def test():
     if request.method == 'GET':
         flash('Example of Flashing')
         flash('Example of Flashing 2')
-        return render_template('test.html')
+        return render_template('bouncing_ball.html')
 
 
 
