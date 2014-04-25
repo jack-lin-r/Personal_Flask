@@ -1,21 +1,22 @@
 $(function(){
 
-  $('.test').click(function(event) {
-    console.log("what");
-    console.log("common");
-    console.log(event.pageX);
-  });
-
-
-  window.what = function(event){
-    console.log("hey");
-    console.log(event.pageX);
-  };
 
   $('#myCanvas').click(function(event) {
     console.log("what");
-    var x = relMouseCoords(event).x;
-    var y = relMouseCoords(event).y;
+    coords = myCanvas.relMouseCoords(event);
+    console.log("wow");
+    console.log(coords);
+
+
+    if (coords.x > (x - 20) && coords.x < (x + 20) && coords.y > (y - 20) && coords.y < (y + 20)){
+      console.log("you hit");
+
+
+    }
+    else{
+      console.log("you didn't hit");
+    }
+
 
 
     // Determine if coordinates are inside the circle that is the ball
@@ -28,7 +29,7 @@ $(function(){
     var canvasY = 0;
     var currentElement = this;
 
-
+    console.log(currentElement);
     do{
       console.log(currentElement.offsetLeft);
       console.log(currentElement.offsetTop);

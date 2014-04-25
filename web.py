@@ -12,6 +12,8 @@ app.secret_key = "starcraft"
 
 
 class Main(flask.views.MethodView):
+    vlist_ = ["bouncing_ball.html"];
+
     def get(self):
         return flask.render_template('index.html')
     def post(self):
@@ -49,6 +51,6 @@ def test():
 
 
 
-#app.debug = True
-#app.run()
+app.debug = True
+app.run()
 

@@ -6,6 +6,13 @@
       <link rel="stylesheet" type="text/css" href="/static/bootstrap-3.1.1-dist/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="/static/mod.css" />
       <style type="text/css">
+        canvas {
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+}
       </style>
   </head>
 
@@ -36,16 +43,9 @@
 
     <div class="container page-header">
       <div class="starter-template">
-        <div id="content">
-          <h1>Hello</h1>
-        </div>
+
       </div>
     </div><!-- /.container -->
-
-    
-    <div class="test">
-       <p>test</p>
-    </div>
 
     <div class="starter-template">    
       <canvas id="myCanvas" width="300" height="300" >
@@ -83,7 +83,8 @@
       function init()
       {
         context= myCanvas.getContext('2d');
-        setInterval(draw,10);
+        setInterval(draw,100);
+
       }
 
       
@@ -91,7 +92,7 @@
       {
         context.clearRect(0,0, 300,300);
         context.beginPath();
-        context.fillStyle="#0000ff";
+        context.fillStyle="#B76EB8";
         // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
         context.arc(x,y,20,0,Math.PI*2,true);
         context.closePath();
@@ -101,33 +102,8 @@
         x+=dx; 
         y+=dy;
       }
+
       
-/*
-      function relMouseCoords(event){
-        var totalOffsetX = 0;
-        var totalOffsetY = 0;
-        var canvasX = 0;
-        var canvasY = 0;
-        var currentElement = this;
-
-        do{
-          totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
-          totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
-        }
-        while(currentElement = currentElement.offsetParent)
-
-        canvasX = event.pageX - totalOffsetX;
-        canvasY = event.pageY - totalOffsetY;
-        console.log(cavasX);
-
-
-        return {x:canvasX, y:canvasY}
-      }
-
-      HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
-*/
-
-
     </script>
 
 
