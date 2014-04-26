@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Jack's Website</title>
+      <link rel="stylesheet" type="text/css" href="/static/bootstrap-3.1.1-dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="/static/mod.css" />
+      <style type="text/css">
+        canvas {
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+}
+      </style>
+  </head>
+
+  <body onLoad="init();">
+    
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{url_for('index')}}">Jack's Site</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{url_for('about')}}">About</a></li>
+            <li><a href="{{url_for('projects')}}">Projects</a></li>
+            <li><a href="/static/resume.pdf">Resume</a></li>
+            <li><a href="{{url_for('code')}}">Code</a></li>
+            <li><a href="{{url_for('test')}}">Test</a><li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container page-header">
+      <div class="starter-template">
+
+      </div>
+    </div><!-- /.container -->
+
+    <div class="starter-template">    
+      <canvas id="myCanvas" width="300" height="300" >
+
+      </canvas>
+    </div><!-- /.container -->
+
+
+
+
+
+
+    <footer class="footer" role="contentinfo">
+      <p>© 2014 Jack Lin</p>
+      <ul class="footer-links">
+        <li><a href="http://github.com/jack-lin-r">Github</a></li>
+        <li>&middot;</li>
+        <li><a href="https://www.linkedin.com/pub/jack-lin/64/248/180">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/l_bounce.js"></script>
+
+    <script>
+
+
+      window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame    ||
+        function( callback ){
+          window.setTimeout(callback, 1000/60);
+        };
+      })();
+
+      
+      var context;
+      var x=100;
+      var y=200;
+      var dx=5;
+      var dy=5;
+      var imgs = []
+      var iter = 0
+      var tempcanvas = document.createElement("canvas");
+      var tempctx = tempcanvas.getContext("2d");
+      
+
+
+      function init()
+      {
+        context= myCanvas.getContext('2d');
+        //setInterval(draw,100);
+        (function animloop(){
+
+
+          /*
+          setTimeout(function() {
+            console.log("what is going on");
+            requestAnimationFrame(animLoop);
+            draw();
+          }, 10);
+          */
+
+          requestAnimFrame(animloop);
+          draw();
+          setTimeout(animLoop, 1);
+
+        })();
+
+      }
+      
+      
+      function draw()
+      {
+        context.clearRect(0,0, 300,300);
+        context.beginPath();
+        context.fillStyle="#B76EB8";
+        // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
+        context.arc(x,y,20,0,Math.PI*2,true);
+        context.closePath();
+        context.fill();
+        if( (x-20)<0 || (x+20)>300) dx=-dx; 
+        if( (y-20)<0 || (y+20)>300) dy=-dy; 
+        x+=dx; 
+        y+=dy;
+
+      }
+
+      
+      /*
+      function cache(){
+
+        for (; iter < iter + 10; iter++){
+          tempcanvas.width = tempcanvas.height = 20 * 2;
+          tempctx.beginPath();
+          tempctx.fillStyle="#B76EB8";
+          tempctx.arc(x,y,20,0,Math.PI*2,true);
+          tempctx.closePath();
+          tempctx.fill();
+          if( (x-20)<0 || (x+20)>300) dx=-dx; 
+          if( (y-20)<0 || (y+20)>300) dy=-dy; 
+          x+=dx; 
+          y+=dy;
+          var img = new Image();
+          img.src = tempcanvas.toDataURL();
+          imgs.push(img)
+        }
+
+      }
+
+
+      function animate(){
+        requestAnimationFrame(animate);
+        context.clearRect(0,0, 300,300);
+        for (var i = iter - 10; i < iter; i++){
+          context.drawImage(imgs[i], 50, 50);
+        }
+      }
+      */
+
+      
+    </script>
+
+
+  </body>
+</html>
+
+
+
+
+

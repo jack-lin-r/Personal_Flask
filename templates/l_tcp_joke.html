@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Jack's Website</title>
+      <link rel="stylesheet" type="text/css" href="/static/bootstrap-3.1.1-dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="/static/mod.css" />
+      <style type="text/css">
+        .center {
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          text-align: center;
+        }
+        h1{
+          font-size:400%;
+        }
+        .footer {
+          position: fixed;
+          margin-top: -110px; 
+          height: 110px;
+          width: 600px;
+          clear:both;
+          bottom: 0;
+          left: 50%;
+          margin-left: -300px;
+        }
+        .floatybox {
+          display: inline-block;
+          width: 123px;
+        }
+
+        .row {
+          width: 100%;
+          text-align: center; 
+        }
+
+        .block {
+          width: 100px;
+          display: inline-block;
+        }​
+
+      </style>
+  </head>
+
+  <body>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/l_tcp.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $(".content").hide();
+        $(".content1").fadeIn(1500);
+        $(".content1").fadeOut(2000, function(){
+          $(".content2").fadeIn(2000);
+          $(".content2").fadeOut(2000, function(){
+            $(".content3").fadeIn(2000);
+          });
+        });
+      });
+        
+    </script>
+
+
+    <div class="center">
+      <div>
+        <h1 class="content content1">Hello</h1>
+      </div>
+      <div>
+        <h1 class="content content2">Welcome to my website</h1>
+      </div>
+      <div class="content content3">
+        <h2>Would you like to hear a TCP joke?</h2>
+        <div class="row">
+          <div class="block yes"><h2>Yes</h2></div>
+          <div class="block no"><h2>No</h2></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <footer class="footer" role="contentinfo">
+      <p>© 2014 Jack Lin</p>
+      <ul class="footer-links">
+        <li><a href="http://github.com/jack-lin-r">Github</a></li>
+        <li>&middot;</li>
+        <li><a href="https://www.linkedin.com/pub/jack-lin/64/248/180">LinkedIn</a></li>
+      </ul>
+    </footer>
+
+    <script>
+
+      
+    </script>
+
+
+  </body>
+</html>
+
+
+
+
+

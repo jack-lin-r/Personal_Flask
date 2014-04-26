@@ -5,8 +5,11 @@ import os
 from flask import Flask, flash, redirect, render_template, \
      request, url_for
 
+from flask_util_js import FlaskUtilJs
+
 
 app = flask.Flask(__name__)
+fujs = FlaskUtilJs(app)
 
 app.secret_key = "starcraft"
 
@@ -47,7 +50,9 @@ def test():
     if request.method == 'GET':
         flash('Example of Flashing')
         flash('Example of Flashing 2')
-        return render_template('bouncing_ball.html')
+        return render_template('l_tcp_joke.html')
+    if request.method == 'POST':
+        return render_template('l_tcp_joke.html')
 
 
 
